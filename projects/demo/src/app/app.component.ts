@@ -1,6 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { DialogService } from '@plain/public-api';
-import { DialogContentComponent } from './components/dialog-content/dialog-content.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'demo-root',
@@ -8,23 +6,5 @@ import { DialogContentComponent } from './components/dialog-content/dialog-conte
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  private dialogService = inject(DialogService);
-
-  ngOnInit(): void {
-    // this.dialogService.openConfirmation({
-    //   data: {
-    //     messages: ['Do you want to confirm dialog?'],
-    //     primaryButtonText: 'Confirm',
-    //     secondaryButtonText: 'Cancel',
-    //   }
-    // })
-  }
-
-  public onEnterUsername(): void {
-    this.dialogService.open(DialogContentComponent, {}).afterClosed().subscribe(result => {
-      console.log(result);
-    });
-  }
 
 }

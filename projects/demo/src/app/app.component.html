@@ -9,9 +9,13 @@
 </nav>
 
 <main class="main-container">
-  <router-outlet></router-outlet>
+  <section class="sidenav-section">
+    <a class="sidenav-action" routerLink="/dialog">
+      Dialog
+    </a>
+  </section>
 
-  <div>
-    <button (click)="onEnterUsername()">Enter Username</button>
-  </div>
+  <section class="content-section">
+    <router-outlet></router-outlet>
+  </section>
 </main>
