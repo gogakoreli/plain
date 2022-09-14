@@ -3,5 +3,36 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "plain": {
+      "projectType": "library",
+      "root": "projects/plain",
+      "sourceRoot": "projects/plain/src",
+      "prefix": "plain",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/plain/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/plain/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/plain/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/plain/src/test.ts",
+            "tsConfig": "projects/plain/tsconfig.spec.json",
+            "karmaConfig": "projects/plain/karma.conf.js"
+          }
+        }
+      }
+    }
   }
 }
