@@ -1,0 +1,45 @@
+.confirmation-dialog-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.confirmation-dialog-content {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 40px 30px 46px;
+}
+
+.confirmation-dialog-title {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.confirmation-dialog-message {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: black;
+}
+
+.confirmation-dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #bbb;
+  padding: 30px;
+}
+
+.confirmation-divider {
+  margin: 16px 0;
+}
+
+.confirmation-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}

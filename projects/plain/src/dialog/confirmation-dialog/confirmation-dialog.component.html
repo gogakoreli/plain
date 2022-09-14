@@ -1,0 +1,33 @@
+<div class="confirmation-dialog-container">
+  <button *ngIf="data.showCloseButton !== false"
+    class="button-icon confirmation-close-button" (click)="close(false)">
+    <span class="icon-close"></span>
+  </button>
+  <div class="confirmation-dialog-content">
+    <h3 class="confirmation-dialog-title" *ngIf="data.title">
+      {{ data.title }}
+    </h3>
+    <ng-container *ngFor="let message of data.messages; first as isFirst">
+      <div *ngIf="!isFirst" class="divider confirmation-divider">
+      </div>
+      <div class="confirmation-dialog-message" *ngIf="!isTemplate(message)"
+        [innerHTML]="message">
+      </div>
+      <div class="confirmation-dialog-message" *ngIf="isTemplate(message)">
+        <ng-container [ngTemplateOutlet]="message">
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <div class="confirmation-dialog-actions"
+    *ngIf="hasPrimaryButton || hasSecondaryButton">
+    <button *ngIf="hasPrimaryButton" data-test-id="primary-button"
+      [ngClass]="primaryButtonClasses" (click)="close(true)">
+      {{ data.primaryButtonText }}
+    </button>
+    <button *ngIf="hasSecondaryButton" data-test-id="secondary-button"
+      [ngClass]="secondaryButtonClasses" (click)="close(false)">
+      {{ data.secondaryButtonText }}
+    </button>
+  </div>
+</div>
