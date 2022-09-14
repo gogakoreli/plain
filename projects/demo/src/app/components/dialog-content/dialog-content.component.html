@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Username
+    <input formControlName="username">
+  </label>
+
+  <br>
+
+  <div class="action-container">
+    <button type="submit">
+      Submit
+    </button>
+    <button type="button" (click)="onCancel()">
+      Cancel
+    </button>
+  </div>
+</form>
