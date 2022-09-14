@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "cd dist/plain && npm deploy --scope=public",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
