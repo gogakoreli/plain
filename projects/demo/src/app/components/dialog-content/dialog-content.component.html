@@ -1,16 +1,18 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <label>
+  <label class="form-label" for="do-not-autofill">
     Username
-    <input formControlName="username">
   </label>
+  <input id="do-not-autofill" class="form-control" formControlName="username"
+    autocomplete="do-not-autofill">
 
+  <br>
   <br>
 
   <div class="action-container">
-    <button type="submit">
+    <button class="btn btn-primary" type="submit">
       Submit
     </button>
-    <button type="button" (click)="onCancel()">
+    <button class="btn btn-danger" type="button" (click)="onCancel()">
       Cancel
     </button>
   </div>

@@ -1,3 +1,17 @@
-<router-outlet></router-outlet>
+<nav class="nav-container">
+  <a class="main-logo" routerLink="/">
+    Angular Plain
+  </a>
 
-<button (click)="onEnterUsername()">Enter Username</button>
+  <a class="github-logo" href="https://github.com/gogakoreli/plain"
+    target="_blank">
+  </a>
+</nav>
+
+<main class="main-container">
+  <router-outlet></router-outlet>
+
+  <div>
+    <button (click)="onEnterUsername()">Enter Username</button>
+  </div>
+</main>

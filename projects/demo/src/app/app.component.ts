@@ -12,13 +12,13 @@ export class AppComponent {
   private dialogService = inject(DialogService);
 
   ngOnInit(): void {
-    this.dialogService.openConfirmation({
-      data: {
-        messages: ['Do you want to confirm dialog?'],
-        primaryButtonText: 'Confirm',
-        secondaryButtonText: 'Cancel',
-      }
-    })
+    // this.dialogService.openConfirmation({
+    //   data: {
+    //     messages: ['Do you want to confirm dialog?'],
+    //     primaryButtonText: 'Confirm',
+    //     secondaryButtonText: 'Cancel',
+    //   }
+    // })
   }
 
   public onEnterUsername(): void {

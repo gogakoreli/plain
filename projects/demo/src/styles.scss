@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+* {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+  --main: rgba(6, 70, 99, 1);
+}
+
+.main-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--main);
+}
+
+.github-logo {
+  width: 40px;
+  height: 40px;
+  background-image: url('/assets/octocat.jpg');
+  background-size: 40px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
