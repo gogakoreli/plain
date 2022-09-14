@@ -17,9 +17,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
-      "plain": [
-        "dist/plain"
-      ]
+      "@plain/*": [
+        "projects/plain/src/*"
+      ],
     },
     "target": "es2020",
     "module": "es2020",
