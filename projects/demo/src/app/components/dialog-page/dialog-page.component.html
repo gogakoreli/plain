@@ -1,8 +1,26 @@
 <div>
-  <h1>Dialog</h1>
-  <p>
-    Use Plain Dialog to add dialogs to the site, show confirmation or any custom
-    content.
-  </p>
-  <button (click)="onEnterUsername()">Enter Username</button>
+  <div class="dialog-example-section">
+    <h1>Dialog</h1>
+    <p>
+      Use Plain Dialog to add dialogs to the site, show confirmation or any
+      custom
+      content.
+    </p>
+  </div>
+
+  <div class="dialog-example-section">
+    <h3>Dialog results emitted via DialogRef</h3>
+    <button class="btn btn-outline-primary" (click)="onEnterUsername()">
+      Enter Username
+    </button>
+  </div>
+
+  <div class="dialog-example-section">
+    <h3>Confirmation Dialog</h3>
+    <p>Opens confirmation dialog before saving changes</p>
+    <button class="btn btn-outline-primary" (click)="openConfirmation()">
+      Save Changes
+    </button>
+  </div>
+
 </div>

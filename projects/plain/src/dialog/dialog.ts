@@ -57,6 +57,9 @@ export interface DialogConfig<D = unknown> {
 
   /** Should close dialog in backdrop click. True by default. */
   closeOnBackdropClick?: boolean;
+
+  /** Close timeout. Automatically closes after timeout defined in milliseconds, disabled by default */
+  closeTimeout?: number;
 }
 
 export const DEFAULT_CONFIG: DialogConfig = {
@@ -92,17 +95,3 @@ export class DialogRef<R = unknown> {
     return this.closedSubject.asObservable();
   }
 }
-
-export const DialogButtons = {
-  COLOR: {
-    DANGER: 'danger',
-    DARK: 'dark',
-    GRAY: 'gray',
-  },
-  TYPE: {
-    DEFAULT: 'button',
-    DASHED: 'button-dashed',
-    OUTLINE: 'button-outline',
-    TEXT: 'button-text'
-  }
-};

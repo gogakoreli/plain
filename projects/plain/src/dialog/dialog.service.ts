@@ -38,6 +38,7 @@ export class DialogService {
     config = (config.hostElementRef === undefined ?
       { ...DEFAULT_CONFIG, ...config } :
       { ...IN_HOST_CONFIG, ...config }) as DialogConfig<D>;
+
     let hostElement = document.body;
     if (config.hostElementRef) {
       hostElement = config.hostElementRef.nativeElement;

@@ -19,15 +19,21 @@ export class DialogPageComponent implements OnInit {
   public openConfirmation(): void {
     this.dialogService.openConfirmation({
       data: {
+        title: 'Confirm save changes!',
         messages: ['Do you want to confirm dialog?'],
         primaryButtonText: 'Confirm',
+        primaryButtonClasses: ['btn btn-primary'],
         secondaryButtonText: 'Cancel',
+        secondaryButtonClasses: ['btn btn-danger'],
       }
     })
   }
 
   public onEnterUsername(): void {
-    this.dialogService.open(DialogContentComponent, {}).afterClosed().subscribe(result => {
+    this.dialogService.open(DialogContentComponent, {
+      // closeOnBackdropClick: false,
+      // closeTimeout: 2000,
+    }).afterClosed().subscribe(result => {
       console.log(result);
     });
   }

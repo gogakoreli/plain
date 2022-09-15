@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Subject, takeUntil, timer } from 'rxjs';
 import { DialogConfig, DialogRef, DIALOG_CONFIG } from './dialog';
 
 @Component({
@@ -10,7 +11,7 @@ import { DialogConfig, DialogRef, DIALOG_CONFIG } from './dialog';
   imports: [CommonModule],
   encapsulation: ViewEncapsulation.None,
 })
-export class DialogContainerComponent {
+export class DialogContainerComponent implements OnInit, OnDestroy {
 
   public containerStyle: Record<string, string | undefined>;
 
@@ -22,16 +23,32 @@ export class DialogContainerComponent {
 
   private config = inject(DIALOG_CONFIG);
 
+  private unsubscribe$ = new Subject<void>();
+
   constructor() {
     this.containerStyle = this.getContainerStyle(this.config);
     this.dialogStyle = this.getDialogStyle(this.config);
     this.hasBackdrop = this.config.hasBackdrop ?? true;
   }
 
+  ngOnInit(): void {
+    if (this.config.closeTimeout) {
+      timer(this.config.closeTimeout).pipe(
+        takeUntil(this.unsubscribe$),
+      ).subscribe(() => {
+        this.dialogRef.close();
+      });
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
   public backdropClick(): void {
     // if config.closeOnBackdropClick is not provided, it will be enabled by default
-    const closeOnBackdropClick = this.config.closeOnBackdropClick === true ||
-      this.config.closeOnBackdropClick === undefined;
+    const closeOnBackdropClick = this.config.closeOnBackdropClick ?? true;
     if (closeOnBackdropClick) {
       this.dialogRef.close();
     }
@@ -99,4 +116,5 @@ export class DialogContainerComponent {
       'margin-bottom': marginBottom
     };
   }
+
 }

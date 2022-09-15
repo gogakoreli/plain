@@ -9,7 +9,7 @@
   pointer-events: none;
 }
 
-.dialog {
+.dialog-content-container {
   position: relative;
   z-index: 10;
   background: #fff;
@@ -36,6 +36,7 @@
   .dialog-container {
     position: absolute;
   }
+
   .dialog-backdrop {
     position: absolute;
   }

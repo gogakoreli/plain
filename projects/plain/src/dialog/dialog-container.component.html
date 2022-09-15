@@ -1,5 +1,5 @@
 <div class="dialog-container" [ngStyle]="containerStyle">
-  <div class="dialog" [ngStyle]="dialogStyle">
+  <div class="dialog-content-container" [ngStyle]="dialogStyle">
     <ng-content></ng-content>
   </div>
   <div class="dialog-backdrop" *ngIf="hasBackdrop" (click)="backdropClick()">
