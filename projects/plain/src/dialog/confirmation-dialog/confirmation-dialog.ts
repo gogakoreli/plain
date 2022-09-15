@@ -8,8 +8,6 @@ export interface ConfirmationDialogData {
   messages: (TemplateRef<unknown> | string)[];
   /** Show close button on top right corner. True by default */
   showCloseButton?: boolean;
-  /** Close timeout. Automatically closes after timeout defined in milliseconds, disabled by default */
-  closeTimeout?: number;
   /** Primary button text*/
   primaryButtonText?: string;
   /** Primary button type. */

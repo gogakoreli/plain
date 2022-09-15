@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  Inject,
-  TemplateRef,
-  ViewEncapsulation
-} from '@angular/core';
-import { DialogButtons, DialogRef, DIALOG_DATA } from '../dialog';
+import { Component, inject, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { DialogRef, DIALOG_DATA } from '../dialog';
 import { ConfirmationDialogData } from './confirmation-dialog';
 
 @Component({
@@ -18,6 +13,8 @@ import { ConfirmationDialogData } from './confirmation-dialog';
 })
 export class ConfirmationDialogComponent {
 
+  public data = inject<ConfirmationDialogData>(DIALOG_DATA);
+
   public get hasPrimaryButton(): boolean {
     return !!this.data.primaryButtonText;
   }
@@ -29,24 +26,10 @@ export class ConfirmationDialogComponent {
   public primaryButtonClasses: string[] = this.data.primaryButtonClasses ?? [];
   public secondaryButtonClasses: string[] = this.data.secondaryButtonClasses ?? [];
 
-  constructor(
-    @Inject(DIALOG_DATA) public data: ConfirmationDialogData,
-    private dialogRef: DialogRef<boolean>,
-  ) {
+  private dialogRef: DialogRef<boolean> = inject(DialogRef);
+
+  constructor() {
     this.data.messages = this.data.messages.filter(message => !!message);
-    if (this.data.closeTimeout) {
-      setTimeout(() => this.close(false), this.data.closeTimeout);
-    }
-    // if the primary and secondary button classes array do not have any -button classes, add default button class
-    const buttonRegex = /-button/g;
-    const primaryCTAHasButtonClass = this.primaryButtonClasses.some(primaryButtonClass => buttonRegex.test(primaryButtonClass));
-    if (!primaryCTAHasButtonClass) {
-      this.primaryButtonClasses.push(DialogButtons.TYPE.DEFAULT);
-    }
-    const secondaryCTAHasButtonClass = this.secondaryButtonClasses.some(secondaryButtonClass => buttonRegex.test(secondaryButtonClass));
-    if (!secondaryCTAHasButtonClass && this.hasSecondaryButton) {
-      this.secondaryButtonClasses.push(DialogButtons.TYPE.DEFAULT);
-    }
   }
 
   public close(result: boolean): void {
