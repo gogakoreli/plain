@@ -9,6 +9,20 @@ import { DialogContentComponent } from '../dialog-content/dialog-content.compone
 })
 export class DialogPageComponent implements OnInit {
 
+  public confirmationCodeExample = `
+  public openConfirmation(): void {
+    this.dialogService.openConfirmation({
+      data: {
+        title: 'Confirm save changes!',
+        messages: ['Do you want to confirm dialog?'],
+        primaryButtonText: 'Confirm',
+        primaryButtonClasses: ['btn btn-primary'],
+        secondaryButtonText: 'Cancel',
+        secondaryButtonClasses: ['btn btn-danger'],
+      }
+    })
+  }`;
+
   private dialogService = inject(DialogService);
 
   constructor() { }
