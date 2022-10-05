@@ -1,6 +1,17 @@
 {
   "name": "plain",
   "version": "0.0.0",
+  "description": "A plain dialog service implementation using newest Angular standalone component API",
+  "author": "Goga Koreli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gogakoreli/plain.git"
+  },
+  "homepage": "https://github.com/gogakoreli/plain",
+  "bugs": {
+    "url": "https://github.com/gogakoreli/plain/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
