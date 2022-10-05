@@ -12,7 +12,7 @@
       {{ data.title }}
     </h3>
     <ng-container *ngFor="let message of data.messages; first as isFirst">
-      <div *ngIf="!isFirst" class="divider confirmation-divider">
+      <div *ngIf="!isFirst" class="confirmation-divider">
       </div>
       <div class="confirmation-dialog-message" *ngIf="!isTemplate(message)"
         [innerHTML]="message">
