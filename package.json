@@ -15,7 +15,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build demo --base-href \"https://gogakoreli.github.io/plain\" --output-path docs",
+    "build": "ng build demo --base-href \"https://gogakoreli.github.io/plain/\" --output-path docs",
     "deploy": "cd dist/plain && npm deploy --scope=public",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
